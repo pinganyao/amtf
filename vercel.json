@@ -1,0 +1,17 @@
+{
+  "outputDirectory": ".",
+  "rewrites": [
+    {"source": "/about", "destination": "/about.html"},
+    {"source": "/forum-2025", "destination": "/forum-2025.html"},
+    {"source": "/gallery", "destination": "/gallery.html"},
+    {"source": "/contact", "destination": "/contact.html"}
+  ],
+  "redirects": [
+    {"source": "/:path*", "has": [{"type": "host", "value": "amtf.gr"}], "destination": "https://www.amtf.gr/:path*", "permanent": true},
+    {"source": "/about.html", "destination": "/about", "permanent": true},
+    {"source": "/forum-2025.html", "destination": "/forum-2025", "permanent": true},
+    {"source": "/gallery.html", "destination": "/gallery", "permanent": true},
+    {"source": "/contact.html", "destination": "/contact", "permanent": true},
+    {"source": "/index.html", "destination": "/", "permanent": true}
+  ]
+}

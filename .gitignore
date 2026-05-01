@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Editor
+*.swp
+*.swo
+
+# Draft files
+index2.html
+index3.html
+index2.css
