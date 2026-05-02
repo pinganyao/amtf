@@ -18,6 +18,7 @@
     <meta name="twitter:image" content="https://www.amtf.gr/media/amtf-banner.png">
     <title>Home | AMTF</title>
     <link rel="canonical" href="https://www.amtf.gr/">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     <meta name="theme-color" content="#0a0a0a">
     <link rel="icon" type="image/png" href="media/amtf-favicon-white.png" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/png" href="media/amtf-favicon-black.png" media="(prefers-color-scheme: light)">
@@ -25,16 +26,29 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Athens Music Technology Forum",
-      "url": "https://www.amtf.gr",
-      "description": "Interdisciplinary outreach and research in music and computer science.",
-      "email": "info@amtf.gr",
-      "address": {"@type": "PostalAddress", "addressLocality": "Athens", "addressCountry": "GR"},
-      "sameAs": [
-        "https://www.instagram.com/amtf.gr/",
-        "https://www.linkedin.com/company/amtf-athens",
-        "https://www.youtube.com/@amtf-gr"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://www.amtf.gr/#website",
+          "url": "https://www.amtf.gr/",
+          "name": "Athens Music Technology Forum",
+          "alternateName": ["AMTF", "amtf.gr"],
+          "publisher": { "@id": "https://www.amtf.gr/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.amtf.gr/#organization",
+          "name": "Athens Music Technology Forum",
+          "url": "https://www.amtf.gr/",
+          "description": "Interdisciplinary outreach and research in music and computer science.",
+          "email": "info@amtf.gr",
+          "address": {"@type": "PostalAddress", "addressLocality": "Athens", "addressCountry": "GR"},
+          "sameAs": [
+            "https://www.instagram.com/amtf.gr/",
+            "https://www.linkedin.com/company/amtf-athens",
+            "https://www.youtube.com/@amtf-gr"
+          ]
+        }
       ]
     }
     </script>
