@@ -148,7 +148,7 @@ body {
     position: relative;
     padding: 0 2rem;
     overflow: hidden;
-    background-image: url('background.png');
+    background-image: url('media/background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -262,8 +262,8 @@ body {
     height: auto;
     margin: 0 auto;
     background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
-    -webkit-mask-image: url('Athens music technology forum.svg');
-    mask-image: url('Athens music technology forum.svg');
+    -webkit-mask-image: url('media/Athens music technology forum.svg');
+    mask-image: url('media/Athens music technology forum.svg');
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-position: center;
