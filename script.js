@@ -33,7 +33,7 @@ document.querySelectorAll('.nav-overlay').forEach(overlay => {
 });
 
 // Close menu when clicking a nav link (for same-page navigation)
-document.querySelectorAll('.nav-menu .nav-link').forEach(link => {
+document.querySelectorAll('.nav-menu a.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         const navbar = link.closest('.navbar');
         const btn = navbar?.querySelector('.nav-toggle');
@@ -89,6 +89,23 @@ if (navbar) {
 
 // Scroll reveal - self-controlled animated experience
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// A small depth shift keeps the homepage sound columns connected to the scroll.
+const homepageHero = document.querySelector('.hero');
+if (homepageHero && !prefersReducedMotion) {
+    let heroScrollFrame;
+    const updateHeroColumns = () => {
+        const shift = Math.min(window.scrollY * 0.08, 38);
+        homepageHero.style.setProperty('--hero-column-shift', `${shift}px`);
+        heroScrollFrame = undefined;
+    };
+
+    window.addEventListener('scroll', () => {
+        if (!heroScrollFrame && window.scrollY <= homepageHero.offsetHeight) {
+            heroScrollFrame = window.requestAnimationFrame(updateHeroColumns);
+        }
+    }, { passive: true });
+}
 
 const scrollRevealOptions = {
     threshold: 0.08,

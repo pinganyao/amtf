@@ -10,7 +10,7 @@
     <meta property="og:title" content="About | AMTF">
     <meta property="og:description" content="About Athens Music Technology Forum — education and research in music and computer science. Founders, mission, research interests.">
     <meta property="og:image" content="https://www.amtf.gr/media/amtf-banner.png">
-    <meta property="og:image:alt" content="Athens Music Technology Forum — AMTF 2025">
+    <meta property="og:image:alt" content="Athens Music Technology Forum logo">
     <meta property="og:url" content="https://www.amtf.gr/about">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About | AMTF">
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -43,9 +43,11 @@
             <ul class="nav-menu">
                 <li><a href="/" class="nav-link">HOME</a></li>
                 <li><a href="/about" class="nav-link active">ABOUT</a></li>
-                <li><a href="/forum-2025" class="nav-link">FORUM 2025</a></li>
+                <li class="nav-item nav-item--has-submenu"><button type="button" class="nav-link nav-link--submenu" aria-haspopup="true">FORUM <span class="nav-link__caret" aria-hidden="true">⌄</span></button><ul class="nav-submenu"><li><a href="/forum-2026">AMTF 2026</a></li><li><a href="/organising-team">ORGANISING TEAM 2026</a></li></ul></li>
                 <li><a href="/gallery" class="nav-link">GALLERY</a></li>
-                <li><a href="/contact" class="nav-link">CONTACT US</a></li>
+                <li class="nav-item nav-item--has-submenu"><button type="button" class="nav-link nav-link--submenu" aria-haspopup="true">RESEARCH <span class="nav-link__caret" aria-hidden="true">⌄</span></button><ul class="nav-submenu"><li><a href="https://lab.amtf.gr" target="_blank" rel="noopener noreferrer">AUDIO LAB</a></li><li><a href="https://choros.amtf.gr" target="_blank" rel="noopener noreferrer">CHOROS</a></li></ul></li>
+                <li class="nav-item nav-item--has-submenu"><button type="button" class="nav-link nav-link--submenu" aria-haspopup="true">ARCHIVE <span class="nav-link__caret" aria-hidden="true">⌄</span></button><ul class="nav-submenu"><li><a href="/forum-2025">AMTF 2025</a></li></ul></li>
+                <li><a href="/contact" class="nav-link">CONTACT</a></li>
             </ul>
         </div>
     </nav>
@@ -93,50 +95,32 @@
                     <h2 class="founders-title">FOUNDERS</h2>
                     <div class="founders-grid scroll-reveal-stagger">
                         <div class="founder-card">
-                            <div class="founder-header">
-                                <div class="founder-photo-wrap">
-                                    <img src="media/patrick.JPG" alt="Patrick Yao, founder of AMTF" class="founder-photo">
-                                </div>
-                                <div class="founder-header-right">
-                                    <div class="founder-name-row">
-                                        <h3 class="founder-name">PATRICK YAO</h3>
-                                        <div class="founder-socials">
-                                            <a href="https://www.instagram.com/ytpyao/" target="_blank" rel="noopener noreferrer" class="founder-social-link" aria-label="Patrick's Instagram">
-                                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                                            </a>
-                                            <a href="https://www.youtube.com/@patrickyao" target="_blank" rel="noopener noreferrer" class="founder-social-link" aria-label="Patrick's YouTube">
-                                                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <p class="founder-bio">
-                                        Patrick Yao is a 17-year-old high school student and musician. Besides his main instrument, piano, he also plays the guitar and sings. Patrick has composed music in various genres and styles, ranging from classical to electronic music. As a performer, Patrick has played both as a solo musician and in an ensemble, and is a member of his school orchestra, where he serves as the keyboardist and melodica player. Since 2024, Patrick's focus has been on music technology, where his current interests include electronic sound design, music information retrieval, and human-AI interation, serving as a peer reviewer for international conferences.
-                                    </p>
-                                </div>
+                            <div class="founder-photo-wrap">
+                                <img src="media/patrick.JPG" alt="Patrick Yao, founder of AMTF" class="founder-photo">
+                            </div>
+                            <h3 class="founder-name">PATRICK YAO</h3>
+                            <div class="founder-socials">
+                                <a href="https://www.instagram.com/ytpyao/" target="_blank" rel="noopener noreferrer" class="founder-social-link" aria-label="Patrick's Instagram">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                </a>
+                                <a href="https://www.youtube.com/@patrickyao" target="_blank" rel="noopener noreferrer" class="founder-social-link" aria-label="Patrick's YouTube">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                </a>
                             </div>
                         </div>
 
                         <div class="founder-card">
-                            <div class="founder-header">
-                                <div class="founder-photo-wrap">
-                                    <img src="media/marilia.JPG" alt="Marilia Voynas, founder of AMTF" class="founder-photo">
-                                </div>
-                                <div class="founder-header-right">
-                                    <div class="founder-name-row">
-                                        <h3 class="founder-name">MARILIA VOYNAS</h3>
-                                        <div class="founder-socials">
-                                            <a href="https://www.instagram.com/mariliavoynas/" target="_blank" rel="noopener noreferrer" class="founder-social-link" aria-label="Marilia's Instagram">
-                                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                                            </a>
-                                            <a href="https://open.spotify.com/artist/0252hxk49UnU9iOKT7W6U6" target="_blank" rel="noopener noreferrer" class="founder-social-link" aria-label="Marilia's Spotify">
-                                                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.405.122-.781-.198-.9-.598-.12-.405.198-.781.598-.9 4.56-1.021 8.52-.6 11.64 1.32.359.198.479.658.24 1.021zm1.44-3.3c-.301.42-.841.559-1.262.258-3.239-1.98-8.159-2.58-11.939-1.38-.479.121-1.02-.12-1.141-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.02-.24-1.2-.84-.18-.6.24-1.02.84-1.2C9.6 6.9 15.6 7.2 18.96 9.36c.54.3.72 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <p class="founder-bio">
-                                        Marilia is a 17-year-old guitarist and composer. She is a founding member of the Athens-based punk rock band Scab Rosa, for which she is the lead guitarist and backing vocalist. With her band, she has performed at various music festivals and concerts, and has established herself in the local rock & metal scene. Marilia's solo project, MARI//LIA, featuring her own recordings as well as collaboration with other musicians, has amassed thousands of views across social media. Her debut solo, Inertia, was released in September 2025. In addition, Marilia has a keen interest in music production, having mixed and mastered several of her solo works.
-                                    </p>
-                                </div>
+                            <div class="founder-photo-wrap">
+                                <img src="media/marilia.JPG" alt="Marilia Voynas, founder of AMTF" class="founder-photo">
+                            </div>
+                            <h3 class="founder-name">MARILIA VOYNAS</h3>
+                            <div class="founder-socials">
+                                <a href="https://www.instagram.com/mariliavoynas/" target="_blank" rel="noopener noreferrer" class="founder-social-link" aria-label="Marilia's Instagram">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                </a>
+                                <a href="https://open.spotify.com/artist/0252hxk49UnU9iOKT7W6U6" target="_blank" rel="noopener noreferrer" class="founder-social-link" aria-label="Marilia's Spotify">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.405.122-.781-.198-.9-.598-.12-.405.198-.781.598-.9 4.56-1.021 8.52-.6 11.64 1.32.359.198.479.658.24 1.021zm1.44-3.3c-.301.42-.841.559-1.262.258-3.239-1.98-8.159-2.58-11.939-1.38-.479.121-1.02-.12-1.141-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.02-.24-1.2-.84-.18-.6.24-1.02.84-1.2C9.6 6.9 15.6 7.2 18.96 9.36c.54.3.72 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -146,42 +130,42 @@
                     <h2 class="research-interests-section-title">RESEARCH INTERESTS</h2>
                     <div class="research-interests-list scroll-reveal-stagger">
                         <div class="research-interest-card">
-                            <h3 class="research-interest-title">Sound Design & Synthesis</h3>
+                            <h3 class="research-interest-title">Sound Design &amp; Synthesis</h3>
                             <p class="research-interest-desc">Psychoacoustics, physical modelling, Digital Signal Processing (DSP), instrument acoustics, modal synthesis</p>
                         </div>
                         <div class="research-interest-card">
                             <h3 class="research-interest-title">Music Information Retrieval</h3>
-                            <p class="research-interest-desc">Computational musicology, music feature detection & extraction, audio & MIDI prediction, recommendation systems, audio fingerprinting</p>
+                            <p class="research-interest-desc">Computational musicology, music feature detection &amp; extraction, audio &amp; MIDI prediction, recommendation systems, audio fingerprinting</p>
                         </div>
                         <div class="research-interest-card">
-                            <h3 class="research-interest-title">Artificial Intelligence & Music</h3>
+                            <h3 class="research-interest-title">Artificial Intelligence &amp; Music</h3>
                             <p class="research-interest-desc">Generative AI, human-computer interaction (HCI), human-AI co-improvisation, intelligent music production, neural networks, reinforcement learning</p>
                         </div>
                         <div class="research-interest-card">
-                            <h3 class="research-interest-title">Audio Processing & Data Analysis</h3>
+                            <h3 class="research-interest-title">Audio Processing &amp; Data Analysis</h3>
                             <p class="research-interest-desc">Time-frequency analysis, signal decomposition, audio restoration, source separation, data visualisation</p>
                         </div>
                         <div class="research-interest-card">
                             <h3 class="research-interest-title">Music Production</h3>
-                            <p class="research-interest-desc">Mixing & mastering, DAW & hardware integration, automation, workflow design, recording technologies</p>
+                            <p class="research-interest-desc">Mixing &amp; mastering, DAW &amp; hardware integration, automation, workflow design, recording technologies</p>
                         </div>
                         <div class="research-interest-card">
-                            <h3 class="research-interest-title">Electroacoustic & Electronic Art Music</h3>
-                            <p class="research-interest-desc">Acousmatic music, music for fixed & mixed media, soundscapes, installations, algorithmic composition, experimental sound generation</p>
+                            <h3 class="research-interest-title">Electroacoustic &amp; Electronic Art Music</h3>
+                            <p class="research-interest-desc">Acousmatic music, music for fixed &amp; mixed media, soundscapes, installations, algorithmic composition, experimental sound generation</p>
                         </div>
                         <div class="research-interest-card">
-                            <h3 class="research-interest-title">Spatial Audio & Ambisonics</h3>
+                            <h3 class="research-interest-title">Spatial Audio &amp; Ambisonics</h3>
                             <p class="research-interest-desc">Binaural audio, HRTFs, Wave Field Synthesis (WFS), spatial mixing, multichannel audio, VR/AR/MR sound design, immersive media, acoustic simulation</p>
                         </div>
                         <div class="research-interest-card">
-                            <h3 class="research-interest-title">Music Software & Virtual Instruments</h3>
+                            <h3 class="research-interest-title">Music Software &amp; Virtual Instruments</h3>
                             <p class="research-interest-desc">JUCE framework, Max/MSP, Pure Data, SuperCollider, sample libraries, physical modelling instruments, music tool GUI/UX design, computer music programming</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="about-page-closing scroll-reveal">
-                    <p class="about-event-title">ATHENS MUSIC TECHNOLOGY FORUM (AMTF) 2025</p>
+                    <p class="about-event-title">ATHENS MUSIC TECHNOLOGY FORUM (AMTF) 2026</p>
                     <p class="about-tagline">Interdisciplinary outreach and research in music and computer science</p>
                 </div>
             </div>
@@ -192,7 +176,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    <p>ATHENS MUSIC TECHNOLOGY FORUM © 2025</p>
+                    <p>ATHENS MUSIC TECHNOLOGY FORUM © 2026</p>
                     <a href="mailto:info@amtf.gr">INFO@AMTF.GR</a>
                     <p>ATHENS, GREECE</p>
                 </div>
@@ -217,4 +201,3 @@
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
-

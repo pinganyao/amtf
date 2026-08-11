@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -43,9 +43,11 @@
             <ul class="nav-menu">
                 <li><a href="/" class="nav-link">HOME</a></li>
                 <li><a href="/about" class="nav-link">ABOUT</a></li>
-                <li><a href="/forum-2025" class="nav-link">FORUM 2025</a></li>
+                <li class="nav-item nav-item--has-submenu"><button type="button" class="nav-link nav-link--submenu" aria-haspopup="true">FORUM <span class="nav-link__caret" aria-hidden="true">⌄</span></button><ul class="nav-submenu"><li><a href="/forum-2026">AMTF 2026</a></li><li><a href="/organising-team">ORGANISING TEAM 2026</a></li></ul></li>
                 <li><a href="/gallery" class="nav-link">GALLERY</a></li>
-                <li><a href="/contact" class="nav-link active">CONTACT US</a></li>
+                <li class="nav-item nav-item--has-submenu"><button type="button" class="nav-link nav-link--submenu" aria-haspopup="true">RESEARCH <span class="nav-link__caret" aria-hidden="true">⌄</span></button><ul class="nav-submenu"><li><a href="https://lab.amtf.gr" target="_blank" rel="noopener noreferrer">AUDIO LAB</a></li><li><a href="https://choros.amtf.gr" target="_blank" rel="noopener noreferrer">CHOROS</a></li></ul></li>
+                <li class="nav-item nav-item--has-submenu"><button type="button" class="nav-link nav-link--submenu" aria-haspopup="true">ARCHIVE <span class="nav-link__caret" aria-hidden="true">⌄</span></button><ul class="nav-submenu"><li><a href="/forum-2025">AMTF 2025</a></li></ul></li>
+                <li><a href="/contact" class="nav-link active">CONTACT</a></li>
             </ul>
         </div>
     </nav>
@@ -55,7 +57,7 @@
             <div class="gallery-hero-inner">
                 <h1 class="gallery-title">Contact</h1>
                 <p class="contact-intro-text">
-                    Have questions about the conference? Interested in speaking or sponsoring? 
+                    Have questions about the conference? Interested in speaking or sponsoring?
                     Want to get involved with AMTF? We'd love to hear from you.
                 </p>
                 <div class="contact-hero-badges">
@@ -114,7 +116,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    <p>ATHENS MUSIC TECHNOLOGY FORUM © 2025</p>
+                    <p>ATHENS MUSIC TECHNOLOGY FORUM © 2026</p>
                     <a href="mailto:info@amtf.gr">INFO@AMTF.GR</a>
                     <p>ATHENS, GREECE</p>
                 </div>
@@ -139,4 +141,3 @@
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
-
