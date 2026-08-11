@@ -18,6 +18,7 @@ document.querySelectorAll('.nav-toggle').forEach(btn => {
         const navbar = btn.closest('.navbar');
         const isOpen = navbar.classList.toggle('is-open');
         btn.setAttribute('aria-expanded', isOpen);
+        if (!isOpen) closeMobileSubmenus(navbar);
         document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 });
@@ -28,6 +29,7 @@ document.querySelectorAll('.nav-overlay').forEach(overlay => {
         const btn = navbar.querySelector('.nav-toggle');
         navbar.classList.remove('is-open');
         if (btn) btn.setAttribute('aria-expanded', 'false');
+        closeMobileSubmenus(navbar);
         document.body.style.overflow = '';
     });
 });
@@ -40,6 +42,7 @@ document.querySelectorAll('.nav-menu a.nav-link').forEach(link => {
         if (navbar?.classList.contains('is-open')) {
             navbar.classList.remove('is-open');
             if (btn) btn.setAttribute('aria-expanded', 'false');
+            closeMobileSubmenus(navbar);
             document.body.style.overflow = '';
         }
     });
@@ -52,18 +55,49 @@ window.addEventListener('keydown', (e) => {
             navbar.classList.remove('is-open');
             const btn = navbar.querySelector('.nav-toggle');
             if (btn) btn.setAttribute('aria-expanded', 'false');
+            closeMobileSubmenus(navbar);
             document.body.style.overflow = '';
         });
     }
 });
 
 const mobileMenuMedia = window.matchMedia('(max-width: 968px)');
+
+// Mobile navigation submenus behave as an accordion. Desktop keeps its
+// hover/focus dropdown behavior from CSS.
+document.querySelectorAll('.nav-link--submenu').forEach((button, index) => {
+    const submenu = button.nextElementSibling;
+    if (!submenu?.classList.contains('nav-submenu')) return;
+
+    if (!submenu.id) submenu.id = `nav-submenu-${index + 1}`;
+    button.setAttribute('aria-controls', submenu.id);
+    button.setAttribute('aria-expanded', 'false');
+
+    button.addEventListener('click', () => {
+        if (!mobileMenuMedia.matches) return;
+
+        const shouldOpen = button.getAttribute('aria-expanded') !== 'true';
+        const navMenu = button.closest('.nav-menu');
+        navMenu.querySelectorAll('.nav-link--submenu[aria-expanded="true"]').forEach(openButton => {
+            openButton.setAttribute('aria-expanded', 'false');
+        });
+        button.setAttribute('aria-expanded', String(shouldOpen));
+    });
+});
+
+const closeMobileSubmenus = navbar => {
+    navbar?.querySelectorAll('.nav-link--submenu').forEach(button => {
+        button.setAttribute('aria-expanded', 'false');
+    });
+};
+
 window.addEventListener('resize', () => {
     if (!mobileMenuMedia.matches) {
         document.querySelectorAll('.navbar.is-open').forEach(navbar => {
             navbar.classList.remove('is-open');
             const btn = navbar.querySelector('.nav-toggle');
             if (btn) btn.setAttribute('aria-expanded', 'false');
+            closeMobileSubmenus(navbar);
             document.body.style.overflow = '';
         });
     }
