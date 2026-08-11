@@ -53,16 +53,24 @@
     </nav>
 
     <main>
-        <section class="gallery-hero scroll-reveal">
-            <div class="gallery-hero-inner">
-                <h1 class="gallery-title">Contact</h1>
-                <p class="contact-intro-text">
-                    Have questions about the conference? Interested in speaking or sponsoring?
-                    Want to get involved with AMTF? We'd love to hear from you.
-                </p>
-                <div class="contact-hero-badges">
-                    <a href="/contact#form" class="forum-date-badge">Join our team</a>
-                    <a href="/contact#form" class="forum-theme-badge">Be part of AMTF 2026</a>
+        <section class="page-hero scroll-reveal" aria-labelledby="contact-title">
+            <div class="container">
+                <header class="page-hero__header">
+                    <div>
+                        <p class="page-hero__edition">AMTF / Contact</p>
+                        <h1 class="page-hero__title" id="contact-title">Contact</h1>
+                    </div>
+                    <p class="page-hero__meta">Get in touch</p>
+                </header>
+                <div class="page-hero__content">
+                    <p class="contact-intro-text">
+                        Have questions about the conference? Interested in speaking or sponsoring?
+                        Want to get involved with AMTF? We'd love to hear from you.
+                    </p>
+                    <div class="contact-hero-badges">
+                        <a href="/contact#form" class="forum-date-badge">Join our team</a>
+                        <a href="/contact#form" class="forum-theme-badge">Be part of AMTF 2026</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -71,19 +79,27 @@
             <div class="container">
                 <div class="contact-layout">
                     <form id="form" class="contact-form" action="https://formspree.io/f/manpnwld" method="POST">
+                        <header class="contact-form__header">
+                            <p class="contact-form__eyebrow">Message AMTF</p>
+                            <h2 class="contact-form__title">Let's talk</h2>
+                        </header>
                         <div class="form-row form-row--split">
                             <div class="form-group">
-                                <input type="text" id="contact-name" name="name" required placeholder="Full name">
+                                <label for="contact-name">Full name</label>
+                                <input type="text" id="contact-name" name="name" autocomplete="name" required placeholder="Your name">
                             </div>
                             <div class="form-group">
-                                <input type="email" id="contact-email" name="email" required placeholder="Email">
+                                <label for="contact-email">Email</label>
+                                <input type="email" id="contact-email" name="email" autocomplete="email" required placeholder="you@example.com">
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="contact-subject" name="subject" placeholder="Subject">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="subject" placeholder="How can we help?">
                         </div>
                         <div class="form-group">
-                            <textarea id="contact-message" name="message" required placeholder="Message" rows="6"></textarea>
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" required placeholder="Tell us a little more…" rows="6"></textarea>
                         </div>
                         <button type="submit" class="contact-form-submit">Send message</button>
                     </form>

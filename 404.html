@@ -39,12 +39,20 @@
         </div>
     </nav>
 
-    <main>
-        <section class="gallery-hero error-page">
-            <div class="gallery-hero-inner">
-                <h1 class="gallery-title error-page__code">404</h1>
-                <p class="error-page__message">This page doesn't exist or has been moved.</p>
-                <a href="/" class="btn btn-primary">Back to home</a>
+    <main class="error-page">
+        <section class="page-hero" aria-labelledby="error-title">
+            <div class="container">
+                <header class="page-hero__header">
+                    <div>
+                        <p class="page-hero__edition">AMTF / Error</p>
+                        <h1 class="page-hero__title" id="error-title">404</h1>
+                    </div>
+                    <p class="page-hero__meta">Page not found</p>
+                </header>
+                <div class="page-hero__content page-hero__content--error">
+                    <p class="error-page__message">This page doesn't exist or has been moved.</p>
+                    <a href="/" class="btn btn-primary">Back to home</a>
+                </div>
             </div>
         </section>
     </main>

@@ -1526,9 +1526,10 @@ body {
 
 .contact-intro-text {
     max-width: 680px;
-    margin: 1.5rem auto 0;
+    margin: 0 auto;
     font-size: 1rem;
     line-height: 1.7;
+    text-align: center;
     color: var(--text-secondary);
     font-weight: 400;
 }
@@ -1852,6 +1853,34 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius);
+    background: var(--bg-secondary);
+}
+
+.contact-form__header {
+    margin-block-end: 2rem;
+    padding-block-end: 1.5rem;
+    border-block-end: 1px solid var(--border-color);
+}
+
+.contact-form__eyebrow {
+    margin-block-end: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.contact-form__title {
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
 }
 
 .contact-form .form-row {
@@ -1865,6 +1894,17 @@ body {
 
 .contact-form .form-group {
     margin-bottom: 0;
+}
+
+.contact-form label {
+    display: block;
+    margin-block-end: 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
 }
 
 .contact-form .form-row + .form-group,
@@ -1883,21 +1923,22 @@ body {
     font-size: 1rem;
     font-family: var(--font-primary);
     color: var(--text-primary);
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.24);
     border-radius: 8px;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
     color: var(--text-secondary);
-    opacity: 0.6;
+    opacity: 0.72;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
+    background: rgba(97, 167, 238, 0.06);
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(97, 167, 238, 0.15);
 }
@@ -3605,8 +3646,7 @@ body {
     color: var(--accent);
 }
 .error-page { min-height: 60vh; }
-.error-page__code { margin-bottom: 1rem; font-size: 4rem; }
-.error-page__message { max-width: 400px; margin: 0 0 2rem; font-size: 1.1rem; color: var(--text-secondary); }
+.error-page__message { margin: 0; font-size: 1.1rem; color: var(--text-secondary); }
 
 @media (max-width: 768px) {
     .status-grid { grid-template-columns: 1fr; }
@@ -3615,6 +3655,63 @@ body {
 }
 
 /* Organising Team */
+.page-hero {
+    padding-block: clamp(10rem, 18vw, 14rem) clamp(4.5rem, 8vw, 7rem);
+    background: var(--bg-primary);
+}
+
+.page-hero__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 3rem;
+    width: min(100%, 1200px);
+    margin: 0 auto clamp(2.5rem, 5vw, 4.5rem);
+    padding-block-end: clamp(1.5rem, 3vw, 2.25rem);
+    border-block-end: 1px solid var(--border-color);
+}
+
+.page-hero__edition {
+    margin-block-end: 0.8rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.page-hero__title {
+    margin: 0;
+    font-size: clamp(3rem, 6.5vw, 6rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+}
+
+.page-hero__meta {
+    padding-block-end: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.page-hero__content {
+    width: min(100%, 1200px);
+    margin-inline: auto;
+}
+
+.page-hero__content--error {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
 .team-page {
     min-height: 100vh;
     background: var(--bg-primary);
@@ -3776,6 +3873,30 @@ body {
 }
 
 @media (max-width: 768px) {
+    .page-hero {
+        padding-block-start: 8.5rem;
+    }
+
+    .page-hero__header {
+        align-items: start;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-block-end: 2rem;
+    }
+
+    .page-hero__title {
+        font-size: clamp(2.65rem, 13vw, 4.5rem);
+    }
+
+    .page-hero__meta {
+        width: 100%;
+    }
+
+    .page-hero__content--error {
+        align-items: start;
+        flex-direction: column;
+    }
+
     .team-roster {
         padding-block-start: 8.5rem;
     }
