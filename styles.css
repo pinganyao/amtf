@@ -3645,7 +3645,17 @@ body {
     text-transform: uppercase;
     color: var(--accent);
 }
-.error-page { min-height: 60vh; }
+.error-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.error-page {
+    flex: 1 0 auto;
+}
+
 .error-page__message { margin: 0; font-size: 1.1rem; color: var(--text-secondary); }
 
 @media (max-width: 768px) {
