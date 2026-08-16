@@ -327,7 +327,6 @@ body {
     box-sizing: content-box;
     width: max-content;
     max-width: 100%;
-    padding-inline-end: 0.08em;
     margin: 0;
     font-size: clamp(3.55rem, 6.8vw, 7.5rem);
     font-weight: 700;
@@ -338,8 +337,11 @@ body {
 }
 
 .hero-title span {
+    box-sizing: content-box;
     width: max-content;
     max-width: 100%;
+    padding-inline-end: 0.2em;
+    overflow: visible;
     animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
