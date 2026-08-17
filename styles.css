@@ -3816,9 +3816,6 @@ body {
     position: relative;
     isolation: isolate;
     aspect-ratio: 1.35 / 1;
-    display: grid;
-    align-items: end;
-    padding: clamp(1.5rem, 4vw, 3rem);
     overflow: hidden;
     border: 1px solid var(--border-color);
     background: #000000;
@@ -3859,6 +3856,12 @@ body {
 }
 
 .team-member__name {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding: clamp(1.5rem, 4vw, 3rem);
     color: #ffffff;
     font-size: clamp(1.8rem, 4vw, 3.5rem);
     line-height: 1;
@@ -3964,7 +3967,6 @@ body {
     .team-member {
         aspect-ratio: 1.1 / 1;
         min-height: 0;
-        padding: clamp(1.25rem, 7vw, 2.5rem);
     }
 
     .team-member:first-child .team-member__photo {
@@ -3972,6 +3974,7 @@ body {
     }
 
     .team-member__name {
+        padding: clamp(1.25rem, 7vw, 2.5rem);
         font-size: clamp(2rem, 10vw, 3.5rem);
         overflow-wrap: break-word;
     }
