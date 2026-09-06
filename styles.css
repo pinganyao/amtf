@@ -2303,8 +2303,8 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* Forum 2026 hero */
-.forum-2026-hero {
+/* Forum 2027 hero */
+.forum-2027-hero {
     position: relative;
     min-height: min(820px, 100dvh);
     overflow: hidden;
@@ -2312,17 +2312,17 @@ body {
     background: var(--bg-primary);
 }
 
-.forum-2026-hero::before {
+.forum-2027-hero::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: -2;
-    background: url("media/forum-2026-hero.webp") center 44% / cover no-repeat;
+    background: url("media/forum-2027-hero.webp") center 44% / cover no-repeat;
     filter: saturate(0.78) contrast(1.05);
     pointer-events: none;
 }
 
-.forum-2026-hero::after {
+.forum-2027-hero::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -2333,7 +2333,7 @@ body {
     pointer-events: none;
 }
 
-.forum-2026-hero-layout {
+.forum-2027-hero-layout {
     display: grid;
     justify-items: start;
     align-content: center;
@@ -2342,7 +2342,7 @@ body {
     text-align: start;
 }
 
-.forum-2026-hero-kicker {
+.forum-2027-hero-kicker {
     display: inline-flex;
     align-items: center;
     gap: 0.85rem;
@@ -2352,7 +2352,7 @@ body {
     background: #000000;
 }
 
-.forum-2026-hero-kicker-theme {
+.forum-2027-hero-kicker-theme {
     font-family: var(--font-mono);
     font-size: clamp(0.7rem, 1vw, 0.82rem);
     font-weight: 600;
@@ -2361,7 +2361,7 @@ body {
     color: var(--text-primary);
 }
 
-.forum-2026-hero-title {
+.forum-2027-hero-title {
     position: relative;
     z-index: 1;
     display: flex;
@@ -2374,13 +2374,13 @@ body {
     text-transform: uppercase;
 }
 
-.forum-2026-hero-title span:last-child {
+.forum-2027-hero-title span:last-child {
     color: transparent;
     -webkit-text-stroke: 2px var(--accent);
     text-stroke: 2px var(--accent);
 }
 
-.forum-2026-hero-intro {
+.forum-2027-hero-intro {
     width: min(100%, 34rem);
     margin-block-start: 2.25rem;
     font-size: clamp(1rem, 1.6vw, 1.3rem);
@@ -2389,7 +2389,7 @@ body {
     color: rgba(255, 255, 255, 0.82);
 }
 
-.forum-2026-hero-footer {
+.forum-2027-hero-footer {
     position: absolute;
     inset-inline: max(2rem, calc((100% - 1500px) / 2));
     inset-block-end: 2rem;
@@ -2405,23 +2405,23 @@ body {
     text-transform: uppercase;
 }
 
-.forum-2026-hero-footer p {
+.forum-2027-hero-footer p {
     display: grid;
     gap: 0.15rem;
 }
 
-.forum-2026-hero-footer p span {
+.forum-2027-hero-footer p span {
     color: rgba(255, 255, 255, 0.52);
 }
 
-.forum-2026-hero-footer a {
+.forum-2027-hero-footer a {
     margin-inline-start: auto;
     color: var(--text-primary);
     text-decoration: none;
     transition: color 0.25s ease;
 }
 
-.forum-2026-hero-footer a:hover {
+.forum-2027-hero-footer a:hover {
     color: var(--accent);
 }
 
@@ -2649,7 +2649,7 @@ body {
     margin-bottom: 0;
 }
 
-.forum-2026-cta {
+.forum-2027-cta {
     max-width: 780px;
     margin: 3rem auto 0;
     padding: clamp(2.5rem, 5vw, 4rem);
@@ -2662,15 +2662,15 @@ body {
     padding-block: 4rem;
 }
 
-.forum-program-section + .conference-section .forum-2026-cta {
+.forum-program-section + .conference-section .forum-2027-cta {
     margin-block-start: 0.5rem;
 }
 
-.forum-2026-cta .about-event-title {
+.forum-2027-cta .about-event-title {
     margin-bottom: 1.25rem;
 }
 
-.forum-2026-cta-title {
+.forum-2027-cta-title {
     max-width: 650px;
     margin: 0 auto 2.25rem;
     font-size: clamp(1.25rem, 2.25vw, 1.75rem);
@@ -2768,7 +2768,7 @@ body {
         padding-block: 2.5rem;
     }
 
-    .forum-program-section + .conference-section .forum-2026-cta {
+    .forum-program-section + .conference-section .forum-2027-cta {
         margin-block-start: 0;
     }
 
@@ -3040,29 +3040,29 @@ body {
         padding: 8rem 0 4rem;
     }
 
-    .forum-2026-hero {
+    .forum-2027-hero {
         min-height: 100svh;
         padding-block: 8rem 8.5rem;
     }
 
-    .forum-2026-hero::before {
+    .forum-2027-hero::before {
         background-position: 60% center;
     }
 
-    .forum-2026-hero-layout {
+    .forum-2027-hero-layout {
         width: 100%;
     }
 
-    .forum-2026-hero-title {
+    .forum-2027-hero-title {
         font-size: clamp(4.5rem, 24vw, 8rem);
     }
 
-    .forum-2026-hero-intro {
+    .forum-2027-hero-intro {
         max-width: 27rem;
         margin-block-start: 1.75rem;
     }
 
-    .forum-2026-hero-footer {
+    .forum-2027-hero-footer {
         inset-inline: 1.5rem;
         inset-block-end: 1.5rem;
         align-items: start;
@@ -4036,30 +4036,30 @@ body {
 }
 
 @media (max-width: 480px) {
-    .forum-2026-hero {
+    .forum-2027-hero {
         min-height: max(100svh, 42rem);
         padding-block: 7rem 10.5rem;
     }
 
-    .forum-2026-hero-kicker {
+    .forum-2027-hero-kicker {
         margin-block-end: 1.25rem;
     }
 
-    .forum-2026-hero-title {
+    .forum-2027-hero-title {
         font-size: clamp(3.75rem, 23vw, 6rem);
     }
 
-    .forum-2026-hero-footer {
+    .forum-2027-hero-footer {
         flex-direction: column;
         align-items: start;
         gap: 0.75rem;
     }
 
-    .forum-2026-hero-footer a {
+    .forum-2027-hero-footer a {
         margin-inline-start: 0;
     }
 
-    .forum-2026-cta {
+    .forum-2027-cta {
         padding: 2rem 1.25rem;
     }
 
@@ -4085,16 +4085,16 @@ body {
 }
 
 @media (max-height: 560px) and (orientation: landscape) {
-    .forum-2026-hero {
+    .forum-2027-hero {
         min-height: 35rem;
         padding-block: 6.5rem 8rem;
     }
 
-    .forum-2026-hero-title {
+    .forum-2027-hero-title {
         font-size: clamp(4rem, 17vh, 6rem);
     }
 
-    .forum-2026-hero-intro {
+    .forum-2027-hero-intro {
         margin-block-start: 1.25rem;
     }
 }
