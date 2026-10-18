@@ -1,25 +1,23 @@
-# Athens Music Technology Forum (AMTF)
+# Athens Music Technology Forum
 
-Static website for [amtf.gr](https://www.amtf.gr) — the Athens Music Technology Forum.
+Website for the [Athens Music Technology Forum](https://www.amtf.gr).
 
-## Development
+Hand-written HTML, CSS, and JavaScript, hosted on Vercel.
 
-This is a hand-written HTML site deployed on Vercel.
+## Pages
 
-### Sitemap Maintenance
+- [Home](https://www.amtf.gr/)
+- [About](https://www.amtf.gr/about)
+- [Forum 2027](https://www.amtf.gr/forum-2027)
+- [Organising team](https://www.amtf.gr/organising-team)
+- [Gallery](https://www.amtf.gr/gallery)
+- [Forum 2025](https://www.amtf.gr/forum-2025)
+- [Contact](https://www.amtf.gr/contact)
 
-When updating page content, remember to update the `<lastmod>` date in `sitemap.xml` for that page. Use the date of the change in `YYYY-MM-DD` format.
+## Local preview
 
-The sitemap should only include live, indexable pages (not redirecting URLs like `/forum-2026`). Currently indexed pages:
+Serve this folder with any static server, then open the site in a browser:
 
-- `/` (index.html)
-- `/forum-2027` (forum-2027.html)
-- `/organising-team` (organising-team.html)
-- `/about` (about.html)
-- `/forum-2025` (forum-2025.html)
-- `/gallery` (gallery.html)
-- `/contact` (contact.html)
-
-### URL Redirects
-
-URL redirects are configured in `vercel.json`. When adding new redirects (e.g., for past forum editions), ensure the old URL is **not** in the sitemap.
+```bash
+python3 -m http.server
+```
