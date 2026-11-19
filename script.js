@@ -124,23 +124,6 @@ if (navbar) {
 // Scroll reveal - self-controlled animated experience
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// A small depth shift keeps the homepage sound columns connected to the scroll.
-const homepageHero = document.querySelector('.hero');
-if (homepageHero && !prefersReducedMotion) {
-    let heroScrollFrame;
-    const updateHeroColumns = () => {
-        const shift = Math.min(window.scrollY * 0.08, 38);
-        homepageHero.style.setProperty('--hero-column-shift', `${shift}px`);
-        heroScrollFrame = undefined;
-    };
-
-    window.addEventListener('scroll', () => {
-        if (!heroScrollFrame && window.scrollY <= homepageHero.offsetHeight) {
-            heroScrollFrame = window.requestAnimationFrame(updateHeroColumns);
-        }
-    }, { passive: true });
-}
-
 const scrollRevealOptions = {
     threshold: 0.08,
     rootMargin: '0px 0px -60px 0px'

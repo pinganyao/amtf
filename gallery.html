@@ -56,18 +56,19 @@
     </nav>
 
     <main class="gallery-page">
-        <section class="gallery-hero">
-            <div class="gallery-hero-inner">
-                <p class="gallery-hero__eyebrow"><span>Inaugural edition</span></p>
-                <h1 class="gallery-title">AMTF Gallery <span>2025</span></h1>
+        <header class="gallery-hero">
+            <div class="gallery-cover-copy">
+                <p class="gallery-kicker">Athens Music Technology Forum</p>
+                <h1 class="gallery-title">Gallery <span>2025</span></h1>
+                <p class="gallery-edition">Inaugural edition<br> 7 November 2025</p>
             </div>
-        </section>
-        <section class="gallery-grid-section scroll-reveal">
-            <div class="container">
-                <section class="gallery-grid-wrap" aria-label="Photo gallery">
-                    <div class="gallery-grid" id="gallery-grid"></div>
-                </section>
+            <img class="gallery-cover-photo" src="media/organising-team-hero.webp" alt="AMTF team gathered at the inaugural forum" width="2100" height="1400" fetchpriority="high">
+        </header>
+        <section class="gallery-grid-section" aria-labelledby="gallery-index-title">
+            <div class="gallery-index">
+                <h2 id="gallery-index-title">Photos</h2>
             </div>
+            <div class="gallery-grid" id="gallery-grid"></div>
         </section>
 
         <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="View image" inert>
