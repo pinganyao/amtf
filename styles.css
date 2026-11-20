@@ -21,20 +21,34 @@ html {
     --accent: #61a7ee;
     --accent-glow: rgba(97, 167, 238, 0.3);
     --border-color: rgba(255, 255, 255, 0.1);
-    --font-primary: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-nav: Arial, sans-serif;
+    --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'JetBrains Mono', 'Courier New', monospace;
     --letter-spacing: 0.03em;
     --radius: 8px;
 }
 
 body {
-    font-family: var(--font-primary);
-    font-weight: 700;
+    font-family: var(--font-body);
+    font-weight: 400;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
     letter-spacing: var(--letter-spacing);
     overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6,
+.hero-summary,
+.about-event-title,
+.about-tagline,
+.forum-2027-hero-intro,
+.forum-theme-badge,
+.program-talk-title,
+.video-feature-quote {
+    font-family: var(--font-heading);
+    font-weight: 700;
 }
 
 /* Navigation */
@@ -86,13 +100,18 @@ body {
     gap: 2rem;
 }
 
+.nav-link,
+.nav-submenu a {
+    opacity: 0.95;
+}
+
 .nav-link {
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--font-nav);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: normal;
     transition: color 0.3s ease;
 }
 
@@ -104,7 +123,6 @@ body {
 
 .nav-link--submenu {
     padding: 0;
-    font-family: inherit;
     background: transparent;
     border: 0;
     cursor: default;
@@ -159,10 +177,10 @@ body {
 .nav-submenu a {
     display: block;
     padding: 0.65rem 0.75rem;
-    font-family: var(--font-primary);
-    font-size: 0.875rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
+    font-family: var(--font-nav);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: normal;
     color: var(--text-primary);
     text-decoration: none;
     transition: color 0.2s ease, background 0.2s ease;
@@ -424,13 +442,21 @@ body {
     max-width: 100%;
 }
 
-.section-title {
-    font-size: 1.85rem;
-    font-weight: 800;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    margin-bottom: 4rem;
+.section-title,
+.founders-title,
+.research-interests-section-title,
+.forum-section-title,
+.edition-status-title {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.03em;
     text-align: center;
+    text-wrap: balance;
+}
+
+.section-title {
+    margin-bottom: 4rem;
     color: var(--text-primary);
 }
 
@@ -820,13 +846,12 @@ body {
 
 .footer-nav a {
     color: var(--text-secondary);
-    font-family: var(--font-primary);
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
     letter-spacing: 0.04em;
     line-height: 1.2;
     text-decoration: none;
-    text-transform: uppercase;
     transition: color 0.25s ease;
 }
 
@@ -839,17 +864,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
-    font-family: var(--font-primary);
+    font-family: var(--font-body);
     min-width: 0;
 }
 
 .footer-text p,
 .footer-text a {
     margin: 0;
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-size: 0.8rem;
+    font-weight: 500;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
     color: var(--text-primary);
     line-height: 1.2;
     overflow-wrap: break-word;
@@ -1307,74 +1331,42 @@ body {
 
 /* About Page Hero */
 .about-hero {
-    display: flex;
-    align-items: center;
-    padding: 10rem 0 4rem;
+    padding-block: clamp(7rem, 9vw, 9rem) clamp(3rem, 5vw, 5rem);
     background: var(--bg-primary);
 }
 
 .about-hero-inner {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.about-hero-left {
-    flex: 1;
-    min-width: 0;
-}
-
-.about-hero-right {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-hero-logo-wrap .glowing-logo {
-    max-width: 280px;
-    filter: brightness(1.1);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: baseline;
+    gap: 2rem;
 }
 
 .about-hero-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 1rem;
-    line-height: 1.15;
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
 }
 
 .about-hero-tagline {
-    margin: 0;
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    justify-self: end;
+    max-width: 44ch;
+    text-align: left;
+    font-size: clamp(1rem, 1.5vw, 1.35rem);
+    letter-spacing: normal;
+    line-height: 1.4;
 }
 
-/* About hero responsive */
-@media (max-width: 900px) {
-    .about-hero {
-        padding: 8rem 0 3rem;
-    }
-
+@media (max-width: 640px) {
     .about-hero-inner {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
     }
 
-    .about-hero-logo-wrap .glowing-logo {
-        max-width: 200px;
+    .about-hero-tagline {
+        justify-self: start;
     }
 }
 
@@ -1449,12 +1441,7 @@ body {
 }
 
 .research-interests-section-title {
-    font-size: clamp(1.35rem, 3vw, 1.85rem);
-    font-weight: 800;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
     color: var(--text-primary);
-    text-align: center;
     margin-bottom: clamp(1.5rem, 4vw, 3rem);
 }
 
@@ -1541,11 +1528,6 @@ body {
 }
 
 .founders-title {
-    font-size: clamp(1.35rem, 3vw, 1.85rem);
-    font-weight: 800;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    text-align: center;
     margin-bottom: clamp(2rem, 5vw, 4rem);
     color: var(--text-primary);
 }
@@ -1623,117 +1605,30 @@ body {
     transform: translateY(-2px);
 }
 
-.mission-section-fullwidth {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    padding: clamp(1.5rem, 4vw, 4rem) clamp(1rem, 3vw, 2rem) clamp(2rem, 5vw, 5rem);
-    box-sizing: border-box;
-    background: linear-gradient(180deg, transparent 0%, rgba(97, 167, 238, 0.03) 30%, rgba(97, 167, 238, 0.03) 70%, transparent 100%);
-}
-
-.mission-section-fullwidth .mission-section {
-    max-width: var(--content-width);
-    margin: 0 auto;
-    padding: clamp(1.5rem, 4vw, 3.5rem);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-}
-
-.mission-section {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.mission-with-photo {
-    display: flex;
-    flex-wrap: wrap;
-    gap: clamp(1.5rem, 4vw, 4rem);
-    align-items: stretch;
-}
-
-/* Stack about description (text + photo) way earlier so it doesn't get cramped */
-@media (max-width: 1200px) {
-    .mission-with-photo {
-        flex-direction: column;
-    }
-
-    .mission-with-photo .mission-content {
-        text-align: center;
-        padding-left: 0;
-        border-left: none;
-    }
-
-    .mission-photo-wrap {
-        width: 100%;
-    }
-
-    .mission-photo-wrap .about-amtf-photo {
-        min-height: 0;
-        height: auto;
-        aspect-ratio: 16 / 10;
-    }
-}
-
-.mission-with-photo .mission-content {
-    flex: 1 1 min(380px, 100%);
-    min-width: 0;
-    padding-left: clamp(0px, 2vw, 1.5rem);
-    border-left: 3px solid var(--accent);
-}
-
-.mission-photo-wrap {
-    flex: 1 1 min(340px, 100%);
-    min-width: 0;
-    position: relative;
-    min-height: clamp(240px, 35vw, 380px);
-}
-
-.mission-photo-wrap::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 14px;
-    padding: 2px;
-    background: linear-gradient(135deg, var(--accent) 0%, transparent 40%, transparent 60%, var(--accent) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.8;
-    pointer-events: none;
-}
-
-.mission-photo-wrap .about-amtf-photo {
-    width: 100%;
-    height: 100%;
-    min-height: clamp(240px, 35vw, 380px);
-    border-radius: 12px;
+.about-amtf-photo {
     display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5616 / 3702;
     object-fit: cover;
-    object-position: 35% center;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    object-position: center bottom;
 }
 
 .mission-content {
-    text-align: center;
+    max-width: 68ch;
+    margin: clamp(2rem, 5vw, 4.5rem) auto 0;
+    font-size: clamp(0.9375rem, 1.1875vw, 1.125rem);
+    line-height: 1.7;
+    letter-spacing: normal;
 }
 
-.mission-with-photo .mission-content {
-    text-align: left;
+.mission-content ul {
+    padding-inline-start: 1.5em;
+    margin-top: 0.5em;
 }
 
-.mission-text {
-    font-size: clamp(0.95rem, 1vw + 0.85rem, 1.0625rem);
-    line-height: 1.85;
-    color: var(--text-secondary);
-    margin-bottom: 1.75rem;
-}
-
-.mission-text:last-of-type {
-    margin-bottom: 0;
+.mission-content > * + p {
+    margin-top: 1em;
 }
 
 /* Contact Page Styles */
@@ -1781,7 +1676,6 @@ body {
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     line-height: 1;
     letter-spacing: -0.035em;
-    text-transform: uppercase;
 }
 
 .contact-form .form-row {
@@ -1822,7 +1716,7 @@ body {
     width: 100%;
     padding: 1rem 1.25rem;
     font-size: 1rem;
-    font-family: var(--font-primary);
+    font-family: var(--font-body);
     color: var(--text-primary);
     background: rgba(255, 255, 255, 0.045);
     border: 1px solid rgba(255, 255, 255, 0.24);
@@ -2193,11 +2087,6 @@ body {
 }
 
 .forum-section-title {
-    font-size: 1.85rem;
-    font-weight: 800;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    text-align: center;
     margin-bottom: 3rem;
     color: var(--text-primary);
 }
@@ -2925,6 +2814,10 @@ body {
         padding: 0 1rem;
     }
 
+    .about-hero-inner {
+        padding-inline: var(--page-gutter);
+    }
+
     .footer {
         padding: 1.5rem 0;
     }
@@ -2940,16 +2833,12 @@ body {
 
     .footer-nav a {
         min-height: 1.5rem;
-        font-size: 0.65rem;
+        font-size: 0.75rem;
     }
 
     .footer-text p,
     .footer-text a {
-        font-size: 0.65rem;
-    }
-
-    .about-hero-logo-wrap .glowing-logo {
-        max-width: 160px;
+        font-size: 0.75rem;
     }
 
     .research-interests-list .research-interest-title {
@@ -3235,11 +3124,6 @@ body {
 
 .edition-status-title {
     margin-bottom: 2rem;
-    font-size: 1.85rem;
-    font-weight: 800;
-    letter-spacing: 0.03em;
-    text-align: center;
-    text-transform: uppercase;
 }
 
 .status-grid {
