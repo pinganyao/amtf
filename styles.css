@@ -688,8 +688,6 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .event-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 0 40px var(--accent-glow);
     transform: translateY(-5px);
 }
 
