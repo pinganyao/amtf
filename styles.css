@@ -40,7 +40,6 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6,
-.hero-summary,
 .about-event-title,
 .about-tagline,
 .forum-2027-hero-intro,
@@ -66,17 +65,21 @@ h1, h2, h3, h4, h5, h6,
 
 /* Navigation inside hero section */
 .hero .navbar {
-    position: absolute;
+    position: relative;
     background-color: transparent;
     border-bottom: none;
     z-index: 100;
 }
 
-.nav-container {
+.nav-container,
+.hero-art-frame {
     width: 100%;
     max-width: var(--page-width);
     margin-inline: auto;
     padding: 0 2rem;
+}
+
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -255,114 +258,77 @@ h1, h2, h3, h4, h5, h6,
 
 /* Hero Section */
 .hero {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100svh;
-    padding: 8rem 2rem 4.5rem;
-    overflow: hidden;
-    isolation: isolate;
-    background:
-        radial-gradient(circle at 20% 50%, rgba(97, 167, 238, 0.1), transparent 50%),
-        radial-gradient(circle at 80% 50%, rgba(97, 167, 238, 0.05), transparent 50%),
-        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-        var(--bg-primary) url('media/background.png') center / cover no-repeat;
+    background: #000;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    place-items: center;
-    text-align: center;
-    width: 100%;
-    max-width: var(--content-width);
-    margin-inline: auto;
+    gap: clamp(2rem, 4vw, 4rem);
+    padding-block: calc(clamp(1.5rem, 3vw, 3rem) + 2rem) clamp(3rem, 6vw, 6rem);
 }
 
 .hero-intro {
-    width: min(100%, 64rem);
+    width: min(calc(100% - 3rem), 56rem);
+    margin-inline: auto;
 }
 
-.hero-kicker {
-    display: inline-flex;
-    align-items: center;
+.hero-edition {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     gap: 1rem;
-    margin-block-end: clamp(1.5rem, 3vh, 2.5rem);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
+    margin-top: 1rem;
+    font: 500 clamp(0.68rem, 1vw, 0.8rem)/1.3 var(--font-mono);
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--text-secondary);
-    animation: hero-rise 0.8s 0.1s ease-out both;
 }
 
-.hero-kicker span {
-    padding: 0.35rem 0.55rem;
-    color: var(--bg-primary);
-    background: var(--accent);
+.hero-art-credit {
+    text-transform: none;
+    text-align: right;
+}
+
+.hero-art-credit cite {
+    font-style: italic;
+}
+
+.hero-edition span:first-child {
+    white-space: nowrap;
+    font: 400 1.15rem/1 var(--font-body);
+    letter-spacing: -0.045em;
+}
+
+.hero-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
+                linear-gradient(to bottom, transparent, #000 7%, #000 90%, transparent);
+    mask-composite: intersect;
 }
 
 .hero-title {
-    display: flex;
-    flex-direction: column;
-    box-sizing: content-box;
-    width: max-content;
-    max-width: 100%;
-    align-items: center;
-    margin-inline: auto;
-    font-size: clamp(3.55rem, 6.8vw, 7.5rem);
-    font-weight: 700;
-    line-height: 0.84;
+    font-family: var(--font-body);
+    font-size: clamp(2rem, 10vw, 7.2rem);
+    line-height: 1;
     letter-spacing: -0.065em;
-    text-transform: uppercase;
-    color: var(--text-primary);
 }
 
 .hero-title span {
-    box-sizing: content-box;
-    width: max-content;
-    max-width: 100%;
-    padding-inline: 0.1em;
-    overflow: visible;
-    animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-/* Keep the gradient on the animated layer so iOS Safari does not composite
-   transparent child text separately from a background clipped on the h1. */
-@supports ((background-clip: text) or (-webkit-background-clip: text)) {
-    .hero-title span {
-        color: transparent;
-        background: linear-gradient(135deg, var(--accent) 0%, var(--text-primary) 85%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-}
-
-.hero-title span:nth-child(2) { animation-delay: 0.06s; }
-.hero-title span:nth-child(3) { animation-delay: 0.12s; }
-.hero-title span:nth-child(4) { animation-delay: 0.18s; }
-
-.hero-summary {
-    margin-inline: auto;
-    max-width: 34rem;
-    margin-block-start: clamp(1.75rem, 3vh, 2.5rem);
-    font-size: clamp(0.95rem, 1.3vw, 1.12rem);
+    display: block;
+    margin-top: 0.25em;
+    text-align: right;
+    color: #b8d9fa;
+    font-size: 0.48em;
     font-weight: 400;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: -0.055em;
     text-wrap: balance;
-    animation: hero-rise 0.8s 0.28s ease-out both;
 }
 
 .hero-cta.cta-buttons {
-    justify-content: center;
-    margin-block-start: 2rem;
-    animation: hero-rise 0.8s 0.36s ease-out both;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    margin-block-start: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .hero-cta .btn { font-weight: 500; }
@@ -392,20 +358,6 @@ h1, h2, h3, h4, h5, h6,
     color: var(--text-primary);
     background: transparent;
     border-color: var(--text-primary);
-}
-
-/* Hide the retired hero index if stale page markup is restored from cache. */
-.hero-index { display: none; }
-
-@keyframes hero-rise {
-    from {
-        opacity: 0;
-        transform: translateY(1.5rem);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Container */
@@ -946,7 +898,8 @@ h1, h2, h3, h4, h5, h6,
 /* Tablet */
 @media (max-width: 1024px) {
     :root { --page-gutter: 1.5rem; }
-    .nav-container {
+    .nav-container,
+    .hero-art-frame {
         padding: 0 1.5rem;
     }
 
@@ -968,10 +921,6 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @media (max-width: 968px) {
-    .hero-content {
-        text-align: center;
-    }
-
     /* Footer - stack on tablet */
     .footer-content {
         flex-direction: column;
@@ -1138,7 +1087,8 @@ h1, h2, h3, h4, h5, h6,
 
 /* Mobile */
 @media (max-width: 768px) {
-    .nav-container {
+    .nav-container,
+    .hero-art-frame {
         padding: 0 1.5rem;
     }
 
@@ -1152,13 +1102,6 @@ h1, h2, h3, h4, h5, h6,
 
     .about-page-section {
         padding: 0 0 clamp(4rem, 8vw, 5rem);
-    }
-
-    .hero {
-        padding: 6rem 1rem 3rem;
-    }
-    .hero-date-badge {
-        width: 110px;
     }
 
     .about-section {
@@ -1219,113 +1162,23 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
-@media (max-width: 968px) {
-    .hero {
-        min-height: max(100svh, 44rem);
-        padding: 7.5rem 1.5rem 4rem;
-    }
-
-}
-
-@media (min-width: 769px) and (max-width: 1100px) {
-    .hero {
-        padding-inline: clamp(2rem, 6vw, 5rem);
-    }
-
-    .hero-content {
-        place-items: center;
-        text-align: center;
-    }
-
+@media (max-width: 600px) {
     .hero-intro {
-        width: min(100%, 58rem);
-        margin-inline: auto;
+        width: calc(100% - 2rem);
     }
 
-    .hero-kicker {
-        justify-content: center;
-    }
-
-    .hero-title {
-        align-items: center;
-        margin-inline: auto;
-        font-size: clamp(4.75rem, 9.5vw, 6.75rem);
-    }
-
-    .hero-summary {
-        margin-inline: auto;
+    .hero-title span {
+        margin: 0.5em 0 0 auto;
+        max-width: 15em;
+        font-size: clamp(1.4rem, 5vw, 2rem);
     }
 
     .hero-cta.cta-buttons {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        justify-content: center;
-        min-height: max(100svh, 48rem);
-        padding: 7.25rem 1.5rem 3.5rem;
-    }
-
-    .hero-content {
-        place-items: center;
-        text-align: center;
-    }
-
-    .hero-intro {
-        margin-inline: auto;
-    }
-
-    .hero-kicker {
-        justify-content: center;
-    }
-
-    .hero-title {
-        align-items: center;
-        margin-inline: auto;
-        font-size: clamp(3.15rem, 16vw, 6.2rem);
-        line-height: 0.8;
-    }
-
-    .hero-summary {
-        max-width: 27rem;
-        margin-inline: auto;
-        text-wrap: pretty;
-    }
-
-    .hero-cta.cta-buttons {
-        flex-direction: row;
-        justify-content: center;
-        align-items: stretch;
-        gap: 0.75rem;
+        gap: 0.6rem;
     }
 
     .hero-cta .btn {
-        width: auto;
         padding-inline: 1rem;
-    }
-
-}
-
-@media (max-width: 420px) {
-    .hero {
-        min-height: max(100svh, 46rem);
-        padding-inline: 1.25rem;
-    }
-
-    .hero-title { font-size: clamp(2.85rem, 15.3vw, 4rem); }
-    .hero-summary { font-size: 0.88rem; }
-    .hero-cta.cta-buttons { gap: 0.5rem; }
-    .hero-cta .btn { padding-inline: 0.8rem; font-size: 0.64rem; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .hero-kicker,
-    .hero-title span,
-    .hero-summary,
-    .hero-cta {
-        animation: none;
     }
 }
 
@@ -2797,7 +2650,8 @@ h1, h2, h3, h4, h5, h6,
         margin-inline: 0.5rem;
     }
 
-    .nav-container {
+    .nav-container,
+    .hero-art-frame {
         padding: 0 1.5rem;
     }
 
