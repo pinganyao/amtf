@@ -12,95 +12,88 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Hamburger menu toggle
-document.querySelectorAll('.nav-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const navbar = btn.closest('.navbar');
-        const isOpen = navbar.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', isOpen);
-        if (!isOpen) closeMobileSubmenus(navbar);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-});
-
-document.querySelectorAll('.nav-overlay').forEach(overlay => {
-    overlay.addEventListener('click', () => {
-        const navbar = overlay.closest('.navbar');
-        const btn = navbar.querySelector('.nav-toggle');
-        navbar.classList.remove('is-open');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-        closeMobileSubmenus(navbar);
-        document.body.style.overflow = '';
-    });
-});
-
-// Close menu when clicking a nav link (for same-page navigation)
-document.querySelectorAll('.nav-menu a.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        const navbar = link.closest('.navbar');
-        const btn = navbar?.querySelector('.nav-toggle');
-        if (navbar?.classList.contains('is-open')) {
-            navbar.classList.remove('is-open');
-            if (btn) btn.setAttribute('aria-expanded', 'false');
-            closeMobileSubmenus(navbar);
-            document.body.style.overflow = '';
-        }
-    });
-});
-
-// Close menu on Escape and when resizing to desktop
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        document.querySelectorAll('.navbar.is-open').forEach(navbar => {
-            navbar.classList.remove('is-open');
-            const btn = navbar.querySelector('.nav-toggle');
-            if (btn) btn.setAttribute('aria-expanded', 'false');
-            closeMobileSubmenus(navbar);
-            document.body.style.overflow = '';
-        });
-    }
-});
-
 const mobileMenuMedia = window.matchMedia('(max-width: 968px)');
 
-// Mobile navigation submenus behave as an accordion. Desktop keeps its
-// hover/focus dropdown behavior from CSS.
-document.querySelectorAll('.nav-link--submenu').forEach((button, index) => {
-    const submenu = button.nextElementSibling;
-    if (!submenu?.classList.contains('nav-submenu')) return;
+document.querySelectorAll('.navbar').forEach(navbar => {
+    const toggle = navbar.querySelector('.nav-toggle');
+    const menu = navbar.querySelector('.nav-menu');
+    menu.id = 'primary-navigation';
+    toggle.setAttribute('aria-controls', menu.id);
+    let currentSection = null;
 
-    if (!submenu.id) submenu.id = `nav-submenu-${index + 1}`;
-    button.setAttribute('aria-controls', submenu.id);
-    button.setAttribute('aria-expanded', 'false');
-
-    button.addEventListener('click', () => {
-        if (!mobileMenuMedia.matches) return;
-
-        const shouldOpen = button.getAttribute('aria-expanded') !== 'true';
-        const navMenu = button.closest('.nav-menu');
-        navMenu.querySelectorAll('.nav-link--submenu[aria-expanded="true"]').forEach(openButton => {
-            openButton.setAttribute('aria-expanded', 'false');
-        });
-        button.setAttribute('aria-expanded', String(shouldOpen));
-    });
-});
-
-const closeMobileSubmenus = navbar => {
-    navbar?.querySelectorAll('.nav-link--submenu').forEach(button => {
-        button.setAttribute('aria-expanded', 'false');
-    });
-};
-
-window.addEventListener('resize', () => {
-    if (!mobileMenuMedia.matches) {
-        document.querySelectorAll('.navbar.is-open').forEach(navbar => {
-            navbar.classList.remove('is-open');
-            const btn = navbar.querySelector('.nav-toggle');
-            if (btn) btn.setAttribute('aria-expanded', 'false');
-            closeMobileSubmenus(navbar);
-            document.body.style.overflow = '';
-        });
+    function leaveSection() {
+        if (!currentSection) return;
+        currentSection.setAttribute('aria-expanded', 'false');
+        currentSection.removeAttribute('aria-label');
+        currentSection = null;
+        menu.scrollTop = 0;
     }
+
+    function setOpen(open) {
+        leaveSection();
+        navbar.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+        menu.scrollTop = 0;
+    }
+
+    toggle.addEventListener('click', () => setOpen(!navbar.classList.contains('is-open')));
+
+    menu.querySelectorAll('.nav-link--submenu').forEach((button, index) => {
+        const submenu = button.nextElementSibling;
+        submenu.id = `nav-submenu-${index + 1}`;
+        button.setAttribute('aria-controls', submenu.id);
+        button.setAttribute('aria-expanded', 'false');
+        button.addEventListener('click', () => {
+            if (!mobileMenuMedia.matches) return;
+            if (currentSection) {
+                leaveSection();
+            } else {
+                currentSection = button;
+                button.setAttribute('aria-expanded', 'true');
+                button.setAttribute('aria-label', 'Back to main menu');
+                menu.scrollTop = 0;
+            }
+            button.focus();
+        });
+    });
+
+    menu.addEventListener('click', event => {
+        if (event.target.closest('a') && navbar.classList.contains('is-open')) {
+            setOpen(false);
+            toggle.focus();
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (!navbar.classList.contains('is-open')) return;
+        if (event.key === 'Escape') {
+            if (currentSection) {
+                currentSection.focus();
+                leaveSection();
+            } else {
+                setOpen(false);
+                toggle.focus();
+            }
+        } else if (event.key === 'Tab') {
+            const controls = Array.from(navbar.querySelectorAll('a, button'))
+                .filter(control => control.getClientRects().length);
+            const first = controls[0];
+            const last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+    });
+
+    mobileMenuMedia.addEventListener('change', () => {
+        if (!mobileMenuMedia.matches && navbar.classList.contains('is-open')) setOpen(false);
+    });
 });
 
 // Add scroll effect to navbar (only for non-hero navbars)
@@ -111,11 +104,7 @@ if (navbar) {
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         
-        if (currentScroll > 100) {
-            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
-        } else {
-            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-        }
+        navbar.classList.toggle('is-scrolled', currentScroll > 100);
         
         lastScroll = currentScroll;
     });
