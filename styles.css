@@ -1216,8 +1216,13 @@ h1, h2, h3, h4, h5, h6,
         gap: 0.65rem;
     }
 
+    .about-hero-title {
+        font-size: clamp(2.25rem, 8vw, 2.75rem);
+    }
+
     .about-hero-tagline {
         justify-self: start;
+        font-size: clamp(1.25rem, 4.5vw, 1.5rem);
     }
 }
 
@@ -2517,7 +2522,7 @@ h1, h2, h3, h4, h5, h6,
 
     .forum-2027-hero {
         min-height: 100svh;
-        padding-block: 8rem 8.5rem;
+        padding-block: 8rem 2rem;
     }
 
     .forum-2027-hero::before {
@@ -2538,8 +2543,6 @@ h1, h2, h3, h4, h5, h6,
     }
 
     .forum-2027-hero-footer {
-        inset-inline: 1.5rem;
-        inset-block-end: 1.5rem;
         align-items: start;
         gap: 1.25rem;
     }
@@ -3426,8 +3429,7 @@ h1, h2, h3, h4, h5, h6,
 
 @media (max-width: 480px) {
     .forum-2027-hero {
-        min-height: max(100svh, 42rem);
-        padding-block: 7rem 10.5rem;
+        padding-block-start: 7rem;
     }
 
     .forum-2027-hero-kicker {
@@ -3476,7 +3478,7 @@ h1, h2, h3, h4, h5, h6,
 @media (max-height: 560px) and (orientation: landscape) {
     .forum-2027-hero {
         min-height: 35rem;
-        padding-block: 6.5rem 8rem;
+        padding-block: 6.5rem 2rem;
     }
 
     .forum-2027-hero-title {
@@ -3485,5 +3487,12 @@ h1, h2, h3, h4, h5, h6,
 
     .forum-2027-hero-intro {
         margin-block-start: 1.25rem;
+    }
+}
+
+@media (max-width: 768px), (max-height: 560px) and (orientation: landscape) {
+    .forum-2027-hero-footer {
+        position: static;
+        margin-block-start: 2rem;
     }
 }
