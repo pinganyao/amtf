@@ -89,6 +89,13 @@ h1, h2, h3, h4, h5, h6,
     align-items: center;
 }
 
+/* Keep the original centered header on ultrawide viewports. */
+@media (max-aspect-ratio: 2/1) {
+    .nav-container {
+        max-width: none;
+    }
+}
+
 .logo-link {
     display: flex;
     align-items: center;
